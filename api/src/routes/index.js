@@ -42,18 +42,19 @@ router.get ("/cursos", async (req, res)=>{
 
 //Crear cursos (con la opcion deshabilitar, se oculta el curso, de esta manera no hace falta eliminarlo)
   router.post('/curso', async (req, res) => {
+    
+  
+    const { nombre, imagen, description, deshabilitar} = req.body
     try{
-  
-    const { nombre, imagen, descripcion, deshabilitar} = req.body
-  
     await Cursos.create({
-        nombre, 
-        imagen, 
-        descripcion, 
-        deshabilitar,     
+      nombre, 
+      imagen, 
+      description, 
+      deshabilitar     
     })
 
-    res.send(`Curso ${nombre} creado exitosamente`)
+  
+    res.send(`Curso creado exitosamente`)
 
 }
 catch(error){

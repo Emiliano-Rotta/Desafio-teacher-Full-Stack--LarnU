@@ -35,7 +35,7 @@ const { Cursos } = sequelize.models;
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 
-Cursos, {through: cursos};
+// Cursos, {through: cursos};
 
 
 
