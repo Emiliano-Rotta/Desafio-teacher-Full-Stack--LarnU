@@ -10,8 +10,6 @@ const initialState ={
                 return {
                     ...state,
                     cursoLarnu: action.payload,
-              
-                  
                 }
 
             //detalle
@@ -24,9 +22,9 @@ const initialState ={
             case "DELETE":
                 return {
                     ...state,
-                    cursoLarnu: []
+                    cursoLarnu: [],
                 } 
-
+            // Buscador
             case "GET_NOMBRE":
                 return {
                     ...state,
@@ -34,6 +32,13 @@ const initialState ={
                 }
 
 
+            case "GET_CURSOS_ID":
+                return {
+                    ...state,
+                    cursoLarnu: action.payload
+                }
+
+            // Orden ascendente o descendente
             case "ORDEN_NOMBRE": 
             let sortedArr = action.payload === "asc" ?
                 state.cursoLarnu.sort(function(a,b){
@@ -60,13 +65,6 @@ const initialState ={
                 cursoLarnu: sortedArr
 
                 }
-
-                case "GET_PRODUCT_ID":
-                    return {
-                        ...state,
-                        cursoLarnu: action.payload
-                    }
-
 
             default:
                 return state;

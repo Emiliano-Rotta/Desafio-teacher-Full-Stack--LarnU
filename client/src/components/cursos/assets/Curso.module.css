@@ -1,0 +1,29 @@
+a:link, a:visited, a:active {
+    text-decoration:none;
+}
+.foto{
+    /* position: fixed; */
+    margin-top: -3%;
+    padding-top: 0%;
+    margin-left:0%;
+    width: 100%;
+    color: rgb(71, 57, 168);
+	font-weight: normal;
+	font-size: 40px;
+    font-family: "Sofia", cursive;
+
+    font-weight:600;
+
+
+}
+ .card{
+    margin-top: 7%;
+    background-color: white;
+    text-decoration: none;
+    width: 98%;
+    
+}
+
+
+
+

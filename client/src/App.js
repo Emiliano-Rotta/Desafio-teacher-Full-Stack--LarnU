@@ -8,15 +8,11 @@ import Detalle from "./components/detalle";
 
 const theme = createTheme({
   palette: {
-    primary: {
-      main: '#FFC400',
-    },
-    secondary: {
-      main: '#3a0ca3',
-    },
-  },
-});
-
+    primary: { main: '#FFC400', },
+    secondary: {main: '#3a0ca3',},
+  },});
+   
+    
 function App() {
   return (
     
@@ -28,7 +24,7 @@ function App() {
         <Route exact path = "/" component = {Cursos}/>
         <Route path= "/idCurso/:id" component = {Detalle}/>
         <Route path = "/crear" component = {CrearCurso}/>
-        <Route path = "/editar" component = {EditarCurso}/>
+        <Route path = "/editar/:id" component = {EditarCurso}/>
        
     </Switch>
     </ThemeProvider>

@@ -1,8 +1,6 @@
 import axios from "axios";
 
-
-
-export function getpok (){
+export function getCurso (){
     return async function (dispatch){ //enviar acciones al reducer, la crea el midle (solo para asincronas)
         try {
         var json = await axios.get ("http://localhost:3001/cursos"); 
@@ -40,6 +38,7 @@ export function deleteDetalle (){
 }
 }
 
+// Buscador
 export function getNombre(nombre){
     return async function (dispatch){
         try{
@@ -55,8 +54,8 @@ export function getNombre(nombre){
 }
 }
 
-//formulario
-export function postPok (payload){
+//Crear cursos
+export function postCurso (payload){
     return async function (dispatch){
         var response = await axios.post ("http://localhost:3001/curso",payload);
         console.log (response)
@@ -65,18 +64,12 @@ export function postPok (payload){
 
 
 
-//boton de orden asc y desc creados
-export function ordenNombre(payload){
-    return{
-        type: "ORDEN_NOMBRE",
-        payload
-    }
-}
+
 
 export const getOneProduct = (id) => {
     return async function (dispatch) {
         const response = (await axios.get(`/idCurso/${id}`)).data;
-        return dispatch({ type: "GET_PRODUCT_ID", payload: response })
+        return dispatch({ type: "GET_CURSOS_ID", payload: response })
     }
 }
 
@@ -88,9 +81,10 @@ export const editarCurso = (id, payload) => {
     }
 }
 
-// export function postPok (payload){
-//     return async function (dispatch){
-//         var response = await axios.post ("http://localhost:3001/curso",payload);
-//         console.log (response)
-//         return response;
-//     }}
+//boton de orden asc y desc creados
+export function ordenNombre(payload){
+    return{
+        type: "ORDEN_NOMBRE",
+        payload
+    }
+}
