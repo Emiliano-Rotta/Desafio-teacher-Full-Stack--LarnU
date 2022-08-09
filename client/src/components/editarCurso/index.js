@@ -5,7 +5,12 @@ import { getOneProduct, editarCurso } from "../../redux/actions";
 import style from "./editarCurso.module.css";
 
 export default function EditarCurso(){
-    const navigate = useHistory ()
+
+    const [imageChosen, setImageChosen] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [imagen, setImagen] = useState("");
+
+    const history = useHistory ()
     const dispatch = useDispatch()
 
 
@@ -42,7 +47,23 @@ export default function EditarCurso(){
 
         }
 
-
+        async function uploadImage(e) {
+            const files = e.target.files;
+            const data = new FormData();
+            data.append('file', files[0]);
+            data.append('upload_preset','ecommerce');
+            setImageChosen(true);
+            setLoading(true);
+            const res = await fetch('https://api.cloudinary.com/v1_1/hentech/image/upload', {
+                method: 'POST',
+                body: data
+            });
+            const file = await res.json();
+        
+            setImagen(file.secure_url);
+            setLoading(false);
+            setInput({...input, imagen: file.secure_url});
+          }
 
         useEffect(()=>(setInput({/////////////////////
             nombre: editar.nombre,
@@ -91,7 +112,7 @@ function handleChange(e){
         else {
         dispatch(editarCurso(id, input))
         alert("Producto modificado con exito");
-        navigate('/')
+        history.push('/')
             
            
         }
@@ -101,6 +122,7 @@ function handleChange(e){
             imagen: "",
             description: "",
         })
+       
     }
     
    
@@ -111,10 +133,11 @@ function handleChange(e){
            
             
             <form className ={style.contenedor}  onSubmit = {(e)=>handleSubmit(e)} >
-            <h1 className ={style.contenedor}>Crear Curso</h1>
+            <h1 className ={style.nombre}>Editar curso</h1>
          <div>
                 <label> </label><br/>
                 <input
+                className ={style.input}
                 placeholder="Nombre del curso: "
                 autocomplete="off"
                 type = "text"
@@ -130,6 +153,7 @@ function handleChange(e){
         <div><br/>
                             
             <input  
+            className ={style.input}
             autocomplete="off"  
             type="text" 
             value={input.imagen} 
@@ -137,12 +161,20 @@ function handleChange(e){
             placeholder="Imagen del curso."  
             onChange={(e)=>handleChange(e)} 
             /> 
-            {errors.imagen && (<p className= {style.error} >{errors.imagen}</p>)}<br/>
-
-
-                <input  
+             {errors.imagen && (<p className= {style.error} >{errors.imagen}</p>)}<br/>
+           
+          <input className={style.seleccionarArchivo} type="file" name="file" onChange={uploadImage} ></input> <br/> 
+          {
+              imageChosen && (<img  className={style.seleccionarArchivo}src={imagen} style={{width:'40%'}} alt="imagen"/>) 
+          }
+            
+           
+            </div>
+        <div><br/>
+            <textarea  
+            className ={style.textarea}
             autocomplete="off"  
-            type="textArea" 
+            type="text" 
             value={input.description} 
             name='description' 
             placeholder="Descripción del curso."  
@@ -151,10 +183,10 @@ function handleChange(e){
              {errors.description && (<p className= {style.error} >{errors.description}</p>)}<br/>
         </div> 
                 
-      
-        <button className={style.boton1} type='submit'>Editar curso</button>
+        <br/>
+        <button className={style.boton} type='submit'>Editar curso</button>
             
-        <Link to= "/"><button className ={style.volver}>Volver</button></Link>
+        <Link to= "/"><button className ={style.boton}>Volver</button></Link>
           </form>
         </div>
     )

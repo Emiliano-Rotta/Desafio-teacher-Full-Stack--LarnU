@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import { getDetalle, deleteDetalle } from "../../redux/actions";
 import { useEffect} from "react";
 import style from "./Detail.module.css";
+import noImage from './assets/no-image.jpg';
 
     
 export default function Detail(props){
@@ -26,23 +27,26 @@ return (
             <div>
             <div className = {style.DetailContainer} >
                 {/* nombre */}
-                <h2 className ={style.name}>Curso: {cursoLarnu[0].nombre.charAt(0).toUpperCase() + cursoLarnu[0].nombre.slice(1)}.</h2>
+                <h2 className ={style.nombre}> {cursoLarnu[0].nombre.charAt(0).toUpperCase() + cursoLarnu[0].nombre.slice(1)}</h2>
                 
                 {/* imagen */}
-                <img src = {cursoLarnu[0].imagen} alt = "" className ={style.image}/>
+                <img src = {cursoLarnu[0].imagen} className ={style.image} alt='Imagen del curso' onError={({ currentTarget }) => {
+                    currentTarget.onerror = null; // prevents looping
+                    currentTarget.src = `${noImage}`;
+                }} />
                 
                 {/* Descripción */}
-                <h5 className ={style.Estadisticas2}>
-                    Descripción del curso: {cursoLarnu[0].description}; 
+                <h5 className ={style.descripcion}>
+                    Descripción: {cursoLarnu[0].description} 
                 </h5>
 
 
                 <Link to = "/" >
-                 <button className ={style.volver} >Volver</button>
+                 <button className ={style.boton} >Volver</button>
                 </Link>   
 
                 <Link to = "/editar/" >
-                 <button className ={style.volver} >Editar curso</button>
+                 <button className ={style.boton} >Editar curso</button>
                 </Link>   
             </div>    
 

@@ -1,14 +1,17 @@
-.contenedorBotones{
+/* .contenedorBotones{
     position: fixed;
     margin-top: 100px;
     width: 100%;
-    color: rgb(71, 57, 168);
-    /* background-color: rgb(71, 57, 168); */
+    color: rgb(71, 57, 168); 
 
+
+}*/
+a:link, a:visited, a:active {
+    text-decoration:none;
 }
 .foto{
     /* position: fixed; */
-    margin-top: 0%;
+    margin-top: -3%;
     padding-top: 0%;
     margin-left:0%;
     width: 100%;
@@ -24,25 +27,24 @@
 	/* text-transform: uppercase; */
 
 }
-.titulo{
-    /* position: fixed; */
+/* .titulo{
+
     margin-top: 0%;
     padding-top: 0%;
     margin-left:0%;
     width: 100%;
-    /* background-color: rgb(245, 245, 47); */
+
     color:rgb(71, 57, 168);
 	font-weight: normal;
 	font-size: 50px;
-    /* font-family: "Sofia", cursive; */
+
 	font-family:  Tahoma, cursive ;
-    /* font-style: italic; */
+
     font-weight:600;
-    /* font-size-adjust:initial; */
-	/* text-transform: uppercase; */
 
-}
 
+} */
+/* 
 
 .volver {
  
@@ -68,7 +70,7 @@
     font-style:normal;
     padding:5px 5px;
     text-decoration:none;      
-}
+} */
 /* .volverL {
  
     font: bold 20px "Quicksand", san-serif;
@@ -84,10 +86,10 @@
     text-decoration:none; 
 }      */
 
-.boton {
+/*.boton {
  
     background-color:rgb(71, 57, 168);
-        /* border-radius:42px; */
+      
         display:inline-block;
         cursor:pointer;
         color:white;
@@ -100,9 +102,7 @@
         
     }
 
-a:link, a:visited, a:active {
-    text-decoration:none;
-}
+
 
 .container{
     display:grid;
@@ -110,16 +110,16 @@ a:link, a:visited, a:active {
     gap: 15px 15px;
     margin: 15px;
     
-    /* background-color: red */
+ 
 }
    
 
 .boton1 {
     background:linear-gradient(to bottom, #ff0000 5%, #b81111 100%);
     background-color:red;
-    /* border-radius:42px; */
+
     display:inline-block;
-    /* cursor:pointer; */
+    
     color:white;
     font-family:Verdana;
     font-size:14px;
@@ -129,10 +129,10 @@ a:link, a:visited, a:active {
     text-decoration:none;
     
 }
-.boton2 {
+ .boton2 {
     background:linear-gradient(to bottom, #ff0000 5%, #b81111 100%);
     background-color:red;
-    /* border-radius:42px; */
+    
     display:inline-block;
     cursor:pointer;
     color:white;
@@ -158,7 +158,7 @@ a:link, a:visited, a:active {
     width: 100%;
     height: auto;
     margin-left: 100%;
- }
+ } */
 /* 
  .gif:hover{
    width: 100px;
@@ -166,6 +166,53 @@ a:link, a:visited, a:active {
   background: red;
   transition: width 2s;
  } */
+
+
+
+
+
+
+
+
+
+
+ .card{
+    margin-top: 7%;
+    background-color: #e5e5e5;
+    text-decoration: none;
+    width: 98%;
+    
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    width: 85vw;
+    /* height: 100%; */
+}
+
+.cardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* height: 100%; */
+}
+.title {
+    padding-right: 60px;
+    margin-left: auto;
+    margin-top: 10%;
+    justify-content: center;
+    font-size: x-large;
+    font-family: 'Roboto', sans-serif;
+    font-weight: "Lucida Console", "Courier New", monospace;
+    color: var(--navbar-bg-color);
+    text-decoration: none;
+    /* margin- */
+}
 
 
 

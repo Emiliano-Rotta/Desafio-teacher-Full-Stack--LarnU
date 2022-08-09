@@ -1,76 +1,56 @@
 .DetailContainer{
-    background: rgba(255, 0, 0, 0.7);
-    height: 615px;
-    width: 700px;
-    display:inline-block;
-    align-items:flex-start;
-    margin-left: 0% ;
+    background: rgb(40, 30, 100);
+    padding: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    max-height: 60%;
+    max-width: 60%;
+    height: auto;
+    width: auto;
+    display:inline-block; 
+    align-items:flex-start; 
+    margin: 5% ;
     flex-direction: column;
-    justify-content: space-between;
+     justify-content: space-between; 
     align-items: center;
-    padding: 5px;
+    
     border-radius: 15px;
     
 }
 
 
-.name{
+.nombre{
     font-size: 35px;
-    color: rgb(255, 208, 0);
-    margin-top: 0px; 
+    color: #FFC400;
+    margin-top: 0%; 
     font-family:Verdana;
        
     
 }
 .image{
-    width: 310px;
+    width: 70%;
     height: auto;
     margin-top: 0px;
 }
 
-.tipos{
-    color: rgb(196, 0, 0);
-    font-size: 25px;
-    margin-top: 0px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 
-}
-
-
-.Estadisticas{
-    color: rgb(196, 0, 0);
-    font-size: 30px;
-    margin-top: -20px;
+.descripcion{
+    color: #e5e5e5;
+    font-size: 15px;
+    margin-top: 5%;
     font-family:Verdana;
 }
-.Estadisticas2{
-    color: rgb(255, 208, 0);
-    font-size: 20px;
-    margin-top: -30px;
-    font-family:Verdana;
-}
-.id{
-    color: rgb(204, 0, 0);
-    font-size: 20px;
-    margin-top: 0px;
-    font-family:Verdana;
-}
-.ayp{
-    color: rgb(255, 208, 0);
-    font-size: 20px;
-    margin-top: -20px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
-}
 
-.volver {
+
+.boton {
     font-style:normal;
     padding:5px 5px;
     text-decoration:none;  
-    background-color:white;
+    background-color:#e5e5e5;
     border-radius:20px;
     display:inline-block;
     cursor:pointer;
-    color:red;
+    color:rgb(40, 30, 100);
     font-family:Verdana;
     font-size:14px;
     font-weight:bold;
@@ -79,14 +59,13 @@
     text-decoration:none;
    
 }
-.volver:hover{
-    background:linear-gradient(to bottom, #ff0000 5%, #b81111 100%);
-    background-color:#d42a2a;
+.boton:hover{
+    background:rgb(71, 57, 168);
     cursor:pointer;
-    color:white;
+    color:#e5e5e5;
     }
 
  .gif{
-    width: 100%;
-    height: 100%;
+    width: 50%;
+    height: 50%;
  }

@@ -1,10 +1,9 @@
 .botonPaginado {
     
-background:linear-gradient(to bottom, red 20%, white 100%);
-background-color: red ;
+background-color: rgb(53, 43, 119);
 border-radius:42px;
 cursor:pointer;
-color:black;
+color:#FFC400;
 font-family:Georgia;
 font-size:16px;
 font-weight:bold;
@@ -12,9 +11,8 @@ padding:5px 10px;
 text-decoration:none;
 }
 .botonPaginado:hover{
-background:linear-gradient(to bottom, white 5%, red 100%);
-background-color: red ;
-color:black;
+background-color:#FFC400; 
+color: rgb(53, 43, 119);
 }
 
 .paginadoContenedor{
