@@ -46,7 +46,7 @@ router.get ("/curso", async (req, res)=>{
     res.send (cursosBD)
     } 
     catch (error) {
-    console.log("Se encontro una falla en el get nombreBaseDatos /cursos ", error)
+      reject(new Error("Se encontro una falla en el get nombreBaseDatos /curso ", error))
   }
 });
 
@@ -70,7 +70,7 @@ router.get ("/cursos", async (req, res)=>{
     res.send (cursosBD)
     } 
     catch (error) {
-    console.log("Se encontro una falla en el get todoBaseDatos /cursos ", error)
+      reject(new Error("Se encontro una falla en el get todoBaseDatos /cursos ", error))
   }
 });
 
@@ -104,7 +104,7 @@ router.post('/curso', async (req, res) => {
 
 }
 catch(error){
-  console.log("Se presento un error en el Post", error)
+  reject(new Error("Se presento un error en el Post", error))
 }
 }
 ); 
