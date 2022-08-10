@@ -94,10 +94,7 @@ export default function Cursos (){
 
                     <Item className={style.card} >
                     
-                    {/* <select className ={style.boton}  onChange={e =>handleSort(e)}>   
-                        <option value="asc">Ordenar A-Z </option>
-                        <option value="des">Ordenar Z-A </option>
-                    </select> */}
+
                     <Grid container spacing={0.5}>
                         {actualCurso.map(p => {
                             return(
@@ -111,10 +108,16 @@ export default function Cursos (){
                                 </Fragment>
                                 ) 
                             })}
-
+                    <div className ={style.orden}  >
+                    <select className ={style.ordenAlfabetico}  onChange={e =>handleSort(e)}>   
+                        <option value="asc">Ordenar A-Z </option>
+                        <option value="des">Ordenar Z-A </option>
+                    </select>
+                    </div>
                     </Grid>
                     </Item>
                     <div> 
+
                         <Paginado
                         cursoPorPag={cursoPorPag}
                         cursoLarnu ={cursoLarnu.length}
@@ -122,6 +125,7 @@ export default function Cursos (){
                         actualPag ={actualPag}
                         
                         />
+ 
                     
                     </div> 
                                         

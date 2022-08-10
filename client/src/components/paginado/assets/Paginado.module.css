@@ -3,7 +3,7 @@
 background-color: rgb(53, 43, 119);
 border-radius:42px;
 cursor:pointer;
-color:#FFC400;
+color:#e5e5e5;
 font-family:Georgia;
 font-size:16px;
 font-weight:bold;
@@ -11,7 +11,7 @@ padding:5px 10px;
 text-decoration:none;
 }
 .botonPaginado:hover{
-background-color:#FFC400; 
+background-color:#e5e5e5; 
 color: rgb(53, 43, 119);
 }
 

@@ -24,6 +24,30 @@ a:link, a:visited, a:active {
     
 }
 
+.ordenAlfabetico {
+    margin:auto;
+    background-color: rgb(53, 43, 119);
+    text-decoration: none;
+    width: 60%;
+    color:#e5e5e5;
+    /* border-radius:3%; */
+    border-color: none ;
+    cursor:pointer;
+    font-family:Georgia;
+    font-size:16px;
+    font-weight:bold;
+    padding:1% 10%;
+    /* justify-content: center; */
+    
+}
 
+.orden {
+    margin:auto;
+    background-color: white;
+    text-decoration: none;
+    width: 60%;
+   
+    
+}
 
 
