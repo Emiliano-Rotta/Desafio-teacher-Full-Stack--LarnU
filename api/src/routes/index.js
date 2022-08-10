@@ -109,29 +109,38 @@ catch(error){
 }
 ); 
 
+// Para modificar los cursos
+async function updateCurso(id, cursos) {
+  const where = { id };
+  let curso = await Cursos.findOne({ where });
+  if (!curso) throw new Error('El curso no existe en la base de datos.');
+  curso.set(cursos);
+  return await curso.save();
+}
 
-// router.put('/editar/:id', async (req, res) => {
-//   const id = req.params.id ;
-//   const cursos = req.body
+router.put('/editar/:id', async (req, res) => {
+  const {id} = req.params;
+  const cursos = req.body;
+  try {
+      const curso = await updateCurso(id, cursos);
+      return res.json("Curso editado");
+  }
+  catch (err) {
+      return res.status(500).send(`No se pudo editar la información del curso (${err})`);
+  }
+});
 
-//   try {
-//       await Cursos.update(Cursos, ({
-//               where: {
-//                   id: id
-//               }
-//           }))
-      
-//       if(cursos.deshabilitar === true){
-//           res.send(`Producto Deshabilitado`)
-//       }else{
-//           res.send(`Producto actualizado`)
-//       }
-//   } catch (error) {
-//       res.status(404).send("No se pudo actualizar el producto")
-//   }
+//Para eliminar los cursos
+router.delete('/delete/:id', async (req, res) => {
+  const {id} = req.params;
 
-
-// }
-// );
+      const curso = await Cursos.findByPk(id);
+      if(curso){
+        await Cursos.destroy({where:{
+            id : id
+        }})
+       res.json("Curso borrado");
+  }
+  else res.json(`No existe el curso con ese id`) })
 
 module.exports = router;
