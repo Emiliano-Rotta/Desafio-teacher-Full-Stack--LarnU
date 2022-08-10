@@ -129,7 +129,7 @@ El contenido de `client` fue creado usando: React.
 
 - En la consola, en `api` introducir, npm test
 
-</br></br>
+</br></br> 
 
 # Para seguir mejorando el proyecto:
 - La mayoría del código está en español, pero algunas cosas en inglés. Unificar el idioma (preferentemente hacia el inglés).
