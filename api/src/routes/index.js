@@ -1,16 +1,38 @@
-const { Router } = require('express');
+// const { Router } = require('express');
 const {Cursos} = require ("../db")
 const {Op} = require('sequelize')
+// const router = Router();
+const express = require('express');
+const Router = express();
+const router = Router;
 
-const router = Router();
+
+
+router.use(express.json()); // for parsing application/json
+
+router.get('/', (req, res) => {
+    res.send({
+      message: 'hola',
+    });
+  });
+
+  // module.exports = Router;
+
+
+
+
+
+
 
 //Para buscar los cursos por el nombre (servira para el buscador)
 const nombreBaseDatos = async (i) => {
+
   try {
     let cursos = await Cursos.findAll({
       where: {nombre : {[Op.iLike]:`%${i}%`}}
     })
     console.log (cursos)
+
     return cursos
         } catch (error) {
           console.log("Hubo un error en nombreBaseDatos", error)
@@ -88,28 +110,28 @@ catch(error){
 ); 
 
 
-router.put('/editar/:id', async (req, res) => {
-  const id = req.params.id ;
-  const cursos = req.body
+// router.put('/editar/:id', async (req, res) => {
+//   const id = req.params.id ;
+//   const cursos = req.body
 
-  try {
-      await Cursos.update(Cursos, ({
-              where: {
-                  id: id
-              }
-          }))
+//   try {
+//       await Cursos.update(Cursos, ({
+//               where: {
+//                   id: id
+//               }
+//           }))
       
-      if(cursos.deshabilitar === true){
-          res.send(`Producto Deshabilitado`)
-      }else{
-          res.send(`Producto actualizado`)
-      }
-  } catch (error) {
-      res.status(404).send("No se pudo actualizar el producto")
-  }
+//       if(cursos.deshabilitar === true){
+//           res.send(`Producto Deshabilitado`)
+//       }else{
+//           res.send(`Producto actualizado`)
+//       }
+//   } catch (error) {
+//       res.status(404).send("No se pudo actualizar el producto")
+//   }
 
 
-}
-);
+// }
+// );
 
 module.exports = router;
