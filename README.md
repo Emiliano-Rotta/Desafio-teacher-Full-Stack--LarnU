@@ -50,7 +50,7 @@ La `Base de datos` fue creada usando: postgresSQL.
   - Nombre  (título del curso)
   - Imagen
   - Descripción
-  - Deshabilitar (en vez de eliminar el curso, se lo deshabilita; ya no queda visible pero si guardado en la base de datos hasta que se habilite nuevamente. Así no se pierde la información)
+
 
 - Cuenta de un solo modelo (Cursos) por lo que no hay relaciones entre modelos; quizás en un futuro se podría mejorar si se agrega, por ejemplo, el modelo teacher, donde un teacher puede dictar varios cursos y un curso ser dictado por varios teacher.
 
@@ -81,8 +81,12 @@ Se desarrolló un servidor en Node/Express con las siguientes rutas:
   - En el Front, se usa para el formulario de creación de cursos.
 
 - [ ] __PUT /editar/{id}__:
-  - Edita y/o deshabilita un curso.
-  - En el Front, cada curso tiene la posibilidad de editarlo o deshabilitarlo.
+  - Edita un curso.
+  - En el Front, cada curso tiene la posibilidad de editarlo.
+
+- [ ] __DELETE /delete/{id}__:
+  - borra un curso.
+  - En el Front, cada curso tiene la posibilidad de ser borrado.
 
 </br></br>
 
@@ -131,5 +135,5 @@ El contenido de `client` fue creado usando: React.
 - La mayoria del código esta en español, pero algunas cosas en inglés. Unificar el idioma (preferentemente hacia el inglés).
 - Realizar todo con Material-ui.
 - Terminar de hacerlo responsive.
-- Para crear y editar el curso, que se haga desde un panel de control que tenga acceso las personas administradoras (para ello hacer un loguin).
+- Para crear, borrar y editar el curso, que se haga desde un panel de control que tenga acceso las personas administradoras (para ello hacer un loguin).
 - `Mejorar y aumentar la cantidad de test.`
