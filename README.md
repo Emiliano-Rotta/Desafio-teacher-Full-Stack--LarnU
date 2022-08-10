@@ -10,9 +10,10 @@
 -  Express
 -  Sequelize - Postgres
 #### Framework  usado:
--  Material-ui
+-  Material-ui (estilos)
+-  Jest (testing)
 
-
+</br></br>
 
 # Para empezar...
 
@@ -38,6 +39,7 @@ DB_HOST=localhost
 - En la consola, en `api` introducir, npm install y luego npm start
 - En la consola, hacer lo mismo en `client`.
 
+</br></br>
 
 # BASE DE DATOS
 La `Base de datos` fue creada usando: postgresSQL.
@@ -52,7 +54,9 @@ La `Base de datos` fue creada usando: postgresSQL.
 
 - Cuenta de un solo modelo (Cursos) por lo que no hay relaciones entre modelos; quizás en un futuro se podría mejorar si se agrega, por ejemplo, el modelo teacher, donde un teacher puede dictar varios cursos y un curso ser dictado por varios teacher.
 
-# API
+</br></br>
+
+# Api
 
 El contenido de `api` fue creado con Express:
 
@@ -80,8 +84,9 @@ Se desarrolló un servidor en Node/Express con las siguientes rutas:
   - Edita y/o deshabilita un curso.
   - En el Front, cada curso tiene la posibilidad de editarlo o deshabilitarlo.
 
+</br></br>
 
-# CLIENT:
+# Client:
 El contenido de `client` fue creado usando: React.
 
 ## Requisitos:
@@ -106,14 +111,25 @@ El contenido de `client` fue creado usando: React.
 - En la página principal Material-UI
 - En el resto, CSS (simplemente por cuestiones de tiempo)
 
-## Testing:
-- [ ] 
-- [ ] 
-- [ ] 
+</br></br>
 
+# Testing:
+- [ ] __GET__:
+  - Todos los cursos,
+  - cursos por nombre,
+  - cursos por ID.
+- [ ] __POST__:
+- [ ] __PUT__:
 
-## Para seguir mejorando el proyecto:
+## Correr los test:
+
+- En la consola, en `api` introducir, npm test
+
+</br></br>
+
+# Para seguir mejorando el proyecto:
 - La mayoria del código esta en español, pero algunas cosas en inglés. Unificar el idioma (preferentemente hacia el inglés).
 - Realizar todo con Material-ui.
 - Terminar de hacerlo responsive.
-- Para crear y editar el curso, que se haga desde un panel de control que tenga acceso las personas administradoras (para ello hacer un loguin)
+- Para crear y editar el curso, que se haga desde un panel de control que tenga acceso las personas administradoras (para ello hacer un loguin).
+- `Mejorar y aumentar la cantidad de test.`
