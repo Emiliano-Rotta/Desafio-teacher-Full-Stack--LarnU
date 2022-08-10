@@ -64,22 +64,22 @@ export function postCurso (payload){
 
 
 
-
-
-export const getOneProduct = (id) => {
-    return async function (dispatch) {
-        const response = (await axios.get(`/idCurso/${id}`)).data;
-        return dispatch({ type: "GET_CURSOS_ID", payload: response })
-    }
-}
-
 export const editarCurso = (id, payload) => {
     return async function (dispatch) {
         var response = (await axios.put(`http://localhost:3001/editar/${id}`,payload)).data;
-        // console.log("acciones", response)
-        return dispatch({ type: "UPDATE_PRODUCT", payload: response })
+        
+        return dispatch({ type: "EDITAR_CURSO", payload: response })
     }
 }
+
+export const deleteCurso = (id, payload) => {
+    return async function (dispatch) {
+        var response = (await axios.delete(`http://localhost:3001/delete/${id}`,payload)).data;
+        
+        return dispatch({ type: "DELETE_CURSO", payload: response })
+    }
+}
+
 
 //boton de orden asc y desc creados
 export function ordenNombre(payload){

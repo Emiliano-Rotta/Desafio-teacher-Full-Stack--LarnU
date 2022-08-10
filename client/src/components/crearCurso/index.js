@@ -4,6 +4,10 @@ import { useDispatch } from 'react-redux';
 import { postCurso } from "../../redux/actions";
 import style from "./assets/CrearCurso.module.css";
 
+import Button from '@mui/material/Button';
+import AddBoxIcon from '@mui/icons-material/AddBox';
+import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
+
 export default function CrearCurso(){
 
 const [imageChosen, setImageChosen] = useState(false);
@@ -145,9 +149,14 @@ async function uploadImage(e) {
             </div> 
                 
             <br/>
-            <button className={style.boton} type='submit'>Crear curso</button>
-                
-            <Link to= "/"><button className ={style.boton}>Volver</button></Link>
+            <Link to = "/" >
+            <Button startIcon={<KeyboardReturnIcon sx={{ color:'#FFC400 ' }}/>}>Volver </Button> 
+            </Link>
+
+            
+            <Button type='submit' startIcon={<AddBoxIcon sx={{ color:'#FFC400 ' }}/>}>Crear curso </Button>
+
+            
             </form>
             </div>
     )

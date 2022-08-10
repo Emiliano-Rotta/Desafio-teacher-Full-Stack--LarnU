@@ -1,29 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {useLocation, Link, useHistory} from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux';
-import { getOneProduct, editarCurso } from "../../redux/actions";
+import { useDispatch } from 'react-redux';
+import {  editarCurso } from "../../redux/actions";
 import style from "./assets/editarCurso.module.css";
+
+import Button from '@mui/material/Button';
+import EditIcon from '@mui/icons-material/Edit';
+import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 
 export default function EditarCurso(){
 
 const [imageChosen, setImageChosen] = useState(false);
 const [imagen, setImagen] = useState("");
-
 const history = useHistory ()
 const dispatch = useDispatch()
 
-
 //para obtener el ID y poder modificar el curso
 const location = useLocation()
-let id = (location.pathname.substring(7,location.pathname.length))
+let id = (location.pathname.substring(8,location.pathname.length))
 
-let editar = useSelector ((state) => state.cursoLarnu); /////////////////
-if (!editar.nombre){
-dispatch(getOneProduct(id))
-}
-editar = useSelector ((state) => state.cursoLarnu); 
-
-   
 
 const [errors, setErrors] = useState({})
 const[input, setInput] = useState({  nombre: "", imagen: "", description: "", })
@@ -41,18 +36,7 @@ function validate(input){
         errors.description = 'Colocar una descripción.';
     }
     return errors
-
 }
-        
-    useEffect(()=>(setInput({/////////////////////
-        nombre: editar.nombre,
-        imagen: editar.imagen,
-        description: editar.description,
-        })),[editar]
-        )
-
-
-
 
 function handleChange(e){
     e.preventDefault ();
@@ -67,22 +51,14 @@ function handleChange(e){
     }));console.log (input)
 }
 
-   
     
 function handleSubmit(e){
     e.preventDefault()
-    if  (  input.nombre === editar.nombre///////////
-        && input.imagen === editar.imagen
-        && input.description === editar.description
-        
-        ){
-        alert ("Curso editar algun campo")
-        }
 
-    else if( input.nombre === 0 
-        || !errors.hasOwnProperty("nombre") //devuelve un buleano si el objeto tiene la propiedad especificada 
-        || !errors.hasOwnProperty("imagen")
-        || !errors.hasOwnProperty("description") 
+     if( input.nombre === 0 
+        || errors.hasOwnProperty("nombre") //devuelve un buleano si el objeto tiene la propiedad especificada 
+        || errors.hasOwnProperty("imagen")
+        || errors.hasOwnProperty("description") 
     )
     {
     alert ("Debe compeltar correctamente todos los campos")
@@ -90,19 +66,11 @@ function handleSubmit(e){
 
     else {
     dispatch(editarCurso(id, input))
-    alert("Producto modificado con exito");
-    history.push('/')
-        
-        
+    alert("Curso editado con exito");
+    history.push('/')         
     }
-    alert ("Debe compeltar correctamente todos los campos")
-    setInput({
-        nombre: "",
-        imagen: "",
-        description: "",
-    })
-    
 }
+
 
 //Para cargar la foto desde la computadora
 async function uploadImage(e) {
@@ -121,10 +89,10 @@ async function uploadImage(e) {
     setInput({...input, imagen: file.secure_url});
   }
 
+
     return(
         <div>
            
-            
             <form className ={style.contenedor}  onSubmit = {(e)=>handleSubmit(e)} >
             <h1 className ={style.nombre}>Editar curso</h1>
             <div>
@@ -178,9 +146,15 @@ async function uploadImage(e) {
             </div> 
                 
             <br/>
-            <button className={style.boton} type='submit'>Editar curso</button>
-                
-            <Link to= "/"><button className ={style.boton}>Volver</button></Link>
+
+            <Link to = {"/idCurso/" +id} >
+            <Button startIcon={<KeyboardReturnIcon sx={{ color:'#FFC400 ' }}/>}>Volver </Button> 
+            </Link>
+
+            
+            <Button type='submit' startIcon={<EditIcon sx={{ color:'#FFC400 ' }}/>}>Editar curso </Button>
+            
+ 
             </form>
             </div>
     )
